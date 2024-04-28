@@ -1,10 +1,14 @@
 import React from "react";
-import Register from "./pages/Register";
+import AppRouter from "./router/AppRouter";
+import AuthProvider from "./context/AuthProvider";
+// import Register from "./pages/Register";
 
 const App = () => {
   return (
     <div>
-      <Register />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </div>
   );
 };
