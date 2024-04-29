@@ -12,6 +12,7 @@ const AppRouter = () => {
     <>
       <Navbar />
       <Routes>
+        {/*//!conditional rendering in routing*/}
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
