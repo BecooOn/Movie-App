@@ -16,11 +16,12 @@ const Register = () => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   // console.log(info)
 
-  const { email, password } = info;
+  const { email, password,firstName,lastName } = info;
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password);
-    console.log(info);
+    const displayName = firstName + " " + lastName; //? updateProfile metodunda kullanmak için bu bilgiyi alıyoruz
+    createUser(email, password, displayName);
+    // console.log(info);
   };
 
   return (

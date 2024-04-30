@@ -18,6 +18,6 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 
-//?Eğer metodları burada oluştursaydık auth'u export yapmaya ihtiyacımız yoktu, contex içerisinde navigate özelliklerinden de yararlanmak için exporrt ettik.
+//?Eğer metodları burada oluştursaydık auth'u export yapmaya ihtiyacımız yoktu, contex içerisinde navigate özelliklerinden de yararlanmak için export ettik.
 
 

@@ -1,9 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "../auth/firebase";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import {
@@ -23,7 +26,11 @@ const AuthProvider = ({ children }) => {
   );
   const navigate = useNavigate();
 
-  const createUser = async (email, password) => {
+  useEffect(() => {
+    userObserver();
+  }, []);
+
+  const createUser = async (email, password, displayName) => {
     //? Şifre 6 karakterden az ise kullanıcıya uyarı
     if (password.length < 6) {
       toastWarnNotify("Password should be at least 6 characters");
@@ -40,6 +47,11 @@ const AuthProvider = ({ children }) => {
         email,
         password
       );
+
+      //!Kullanıcı bilgilerini güncellemek için register içinde bu firebase metodunu kullanıyoruz, displayName register alınacak. Çünkü ilk anda displayName boş olacaktır ve kullanıcının ismini ekranda görmesi için en güncel bilgiler bu metodla sağlanacaktır.
+      await updateProfile(auth.currentUser, {
+        displayName: displayName,
+      });
       navigate("/login"); //? Kullanıcı kayıt olduktan sonra login sayfasına yönlendirmek için
       toastSuccessNotify("Registration successful");
       // console.log(userCredential);
@@ -55,7 +67,7 @@ const AuthProvider = ({ children }) => {
       //!Mevcut kullanıcının giriş yapması için kullanılan firebase metodu
       //? auth, url gibi; email ve password ise data gibi
       const userCredential = await signInWithEmailAndPassword(
-        //!auth metodu firebase.js den import
+        //!auth metodu firebase.js den import edilir
         auth,
         email,
         password
@@ -68,16 +80,43 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-const logOut = () =>{
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    toastSuccessNotify("Logout Successful");
-  }).catch((error) => {
-    // An error happened.
-    toastErrorNotify("An error happened");
-  });
-}
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        toastSuccessNotify("Logout Successful");
+      })
+      .catch((error) => {
+        // An error happened.
+        toastErrorNotify("An error happened", error);
+      });
+  };
 
+  //!Bir kullanıcı başarıyla oturum açtığında gözlemcide kullanıcı hakkında bilgi alabilmek için kullanılan firebase metodu.(onAuthStateChanged). Bu işlemi tek sefer yapması yeterlidir
+  const userObserver = () => {
+    onAuthStateChanged(auth, (user) => {
+      //!displayName kullanıcı bilgilerini alabilmek için bu kodlardan sonra updateProfile metoduna ihtiyacımız var
+      if (user) {
+        //?user login olduğunda
+        const { email, displayName, photoURL } = user;
+        setCurrentUser({ email, displayName, photoURL });
+        sessionStorage.setItem(
+          "currentUser",
+          JSON.stringify({ email, displayName, photoURL })
+        );
+      } else {
+        //?user logout olduğunda
+        setCurrentUser(null);
+      }
+    });
+  };
+
+  //? 1.Google ile girişi enable ediyoruz
+  //? 2.Projeyi deploy ettikten sonra google sign-in çalışması için domain listesine deploy linkini ekle(Authentication => settings => Authorized domains => add domain)
+  const googleProvider = () => {
+    const provider = new GoogleAuthProvider();
+  };
+  // console.log(currentUser);
 
   const values = {
     currentUser,
