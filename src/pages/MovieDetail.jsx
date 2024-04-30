@@ -67,7 +67,7 @@ const MovieDetail = () => {
       </div>
       <div className="text-center m-4">
         <Link
-          to={-1}
+          to="/"
           className="bg-red-main hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
         >
           Go Back
