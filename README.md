@@ -1,6 +1,10 @@
 ## Movie App
 ##
 
+## Live link
+
+https://becooon.github.io/react/projects/008-Movie-App/
+
 ## Description
 
 Project aims to create a Movie App.
@@ -49,12 +53,6 @@ SOLUTION
 ├── tailwind.config.js
 └── yarn.lock
 ```
-
-![Project Snapshot](movie-app_structure.png)
-
-## Expected Outcome
-
-![Project Snapshot](movie.gif)
 
 ## Objective
 
@@ -201,4 +199,4 @@ sendPasswordResetEmail(auth, email)
 - Step 5: You can use css frameworks like Bootstrap, Semantic UI, Material UI.
 
 ## Demo
-<a href="https://movie-app-netlify.netlify.app/" target="_blank">Movie App</a>
+<a href="https://becooon.github.io/react/projects/008-Movie-App/" target="_blank">Movie App</a>
