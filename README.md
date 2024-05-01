@@ -2,7 +2,7 @@
 
 ## Live link
 
-https://becooon.github.io/react/projects/008-Movie-App/
+https://movie-app-netlify.netlify.app/
 
 ## Description
 
@@ -198,4 +198,4 @@ sendPasswordResetEmail(auth, email)
 - Step 5: You can use css frameworks like Bootstrap, Semantic UI, Material UI.
 
 ## Demo
-<a href="https://becooon.github.io/react/projects/008-Movie-App/" target="_blank">Movie App</a>
+<a href="https://movie-app-netlify.netlify.app/" target="_blank">Movie App</a>
