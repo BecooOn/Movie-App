@@ -1,15 +1,9 @@
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
-
-# Project-008 : Movie App (RP-08)
+## Movie App
+##
 
 ## Description
 
 Project aims to create a Movie App.
-
-## Problem Statement
-
-- We are adding a new project to our portfolios. So you and your colleagues have started to work on the project.
 
 ## Project Skeleton
 
@@ -19,28 +13,41 @@ Project aims to create a Movie App.
 |----readme.md         # Given to the students (Definition of the project)
 SOLUTION
 ├── public
-│     └── index.html
+│    ├── img
+│    ├── index.html
+│    └── manifest.json
 ├── src
+│    ├── assets
+│    │     └── icons
 │    ├── auth
 │    │     └── firebase.js
 │    ├── components
-│    │     ├── MovieCard.js
-│    │     └── Navbar.js
+│    │     ├── MovieCard.jsx
+│    │     ├── MovieDetail.jsx
+│    │     ├── MovieModal.jsx
+│    │     ├── Navbar.jsx
+│    │     ├── Switch.jsx
+│    │     └── VideoSection.jsx
 │    ├── context
-│    │     └── AuthContext.js
+│    │     ├── AuthProvider.jsx
+│    │     └── MovieProvider.jsx
+│    ├── helpers
+│    │     └── ToastNotify.js
 │    ├── pages
-│    │     ├── Login.js
-│    │     ├── Register.js
-│    │     ├── Main.js
-│    │     └── MovieDetail.js
+│    │     ├── Login.jsx
+│    │     ├── Register.jsx
+│    │     ├── Main.jsx
+│    │     └── MovieDetail.jsx
 │    ├── router
-│    │     └── Router.js
+│    │     ├── AppRouter.jsx
+│    │     └── PrivateRouter.jsx
 │    ├── App.js
-│    ├── App.css
 │    ├── index.js
 │    └── index.css
-├── package.json
 ├── .env
+├── .gitignore
+├── package.json
+├── tailwind.config.js
 └── yarn.lock
 ```
 
@@ -54,21 +61,17 @@ SOLUTION
 
 Build a Movie App using ReactJS.
 
-### At the end of the project, following topics are to be covered;
+### Technologies I used;
 
-- HTML
-
-- CSS
-
-- JS
-
+- Firebase
 - ReactJS
-
-### At the end of the project, students will be able to;
-
-- improve coding skills within HTML & CSS & JS & ReactJS.
-
-- use git commands (push, pull, commit, add etc.) and Github as Version Control System.
+- JS
+- Tailwindcss
+- HTML
+- CSS
+- axios
+- react-toastify
+- react-router-dom
 
 ## Steps to Solution
 
@@ -79,8 +82,6 @@ Build a Movie App using ReactJS.
 
 - Step 2 : Signup `https://firebase.google.com/` and create new app in firebase.
   Firebase is a backed application development software that enables developers to develop iOS, Android and Web apps. It provides developers with a variety of tools and services to help them develop quality apps, grow their user base, and earn profit. It is built on Google’s infrastructure. Firebase offers a number of services, including: analytics,authentication, cloud messaging, realtime database, performance and test lab. Firebase is categorized as a NoSQL database program, which stores data in JSON-like documents.
-
-![Project 005 Snapshot](firebase-create-app.gif)
 
 - Step 3 : Use `https://firebase.google.com/docs/auth/web/start` and create `Authentication` operations.
   - Add the Firebase Authentication JS codes in your `firebase.js` file and initialize Firebase Authentication:
@@ -200,13 +201,5 @@ sendPasswordResetEmail(auth, email)
 
 - Step 5: You can use css frameworks like Bootstrap, Semantic UI, Material UI.
 
-- Step 6: Add project gif to your project and README.md file.
-
-## Notes
-
-- You can add additional functionalities to your app.
-
 ## Demo
-<a href="https://movieapp-tailwind.vercel.app/" target="_blank">Movie App</a>
-
-**<p align="center">&#9786; Happy Coding &#9997;</p>**
+<a href="https://movie-app-netlify.netlify.app/" target="_blank">Movie App</a>
