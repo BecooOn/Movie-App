@@ -44,7 +44,6 @@ SOLUTION
 │    ├── App.js
 │    ├── index.js
 │    └── index.css
-├── .env
 ├── .gitignore
 ├── package.json
 ├── tailwind.config.js
