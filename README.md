@@ -1,5 +1,4 @@
 ## Movie App
-##
 
 ## Live link
 
@@ -14,7 +13,7 @@ Project aims to create a Movie App.
 ```
 008 - Movie App (folder)
 |
-|----readme.md         # Given to the students (Definition of the project)
+|----readme.md
 SOLUTION
 ├── public
 │    ├── img
