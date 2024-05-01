@@ -25,7 +25,6 @@ const Main = () => {
     }
   };
 
-  // console.log({ movies, loading });
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex justify-center p-2">

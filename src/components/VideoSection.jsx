@@ -2,7 +2,7 @@ import React from "react";
 
 const VideoSection = ({ videoKey }) => {
   return (
-    <div className="w-10/12 md:w-3/5 mx-auto my-3">
+    <div className="w-full md:w-1/2 mx-auto my-2">
       <div
         className="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden rounded-xl"
         style={{ paddingTop: "56.25%" }}

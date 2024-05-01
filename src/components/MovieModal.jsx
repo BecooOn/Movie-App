@@ -44,6 +44,9 @@ const MovieModal = ({
                   />
                   <div className="p-6 flex flex-col justify-between">
                     <div>
+                      <h2 className="text-gray-700 dark:text-gray-300  text-base font-bold mb-4">
+                        {title}
+                      </h2>
                       <h5 className="text-gray-900 dark:text-gray-50 text-xl font-medium mb-2">
                         Overview
                       </h5>

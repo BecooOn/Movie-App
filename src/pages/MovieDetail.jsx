@@ -10,22 +10,7 @@ const MovieDetail = () => {
   const [videoKey, setVideoKey] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
-  const {
-    title,
-    poster_path,
-    // overview,
-    // vote_average,
-    // release_date,
-    // vote_count,
-  } = movieDetail;
+  const { title, poster_path } = movieDetail;
 
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const movieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
@@ -68,9 +53,9 @@ const MovieDetail = () => {
       <div className="text-center m-4">
         <Link
           to="/"
-          className="bg-red-main hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded fixed top-[90px] right-[16px] sm:top-28 sm:right-10"
         >
-          Go Back
+          Movies
         </Link>
       </div>
       <MovieModal

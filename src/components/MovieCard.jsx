@@ -45,23 +45,3 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
 };
 
 export default MovieCard;
-
-  /* <Link to={`/movie/${id}`}>View Details</Link> */
-  
-
-// const [isModalOpen, setIsModalOpen] = useState(false);
-
-// const openModal = () => {
-//   setIsModalOpen(true);
-// };
-
-// const closeModal = () => {
-//   setIsModalOpen(false);
-// };
-
-/* <MovieModal
-isModalOpen={isModalOpen}
-setIsModalOpen={setIsModalOpen}
- title={title}
- overview={overview}
-/> */

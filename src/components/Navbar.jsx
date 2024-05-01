@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png";
 import { useAuthContext } from "../context/AuthProvider";
 
-// <div className="border-4 border-red-700 h-[10vh] w-screen">
-// </div>
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -33,7 +30,6 @@ const Navbar = () => {
                 <span className="text-green-700">Movie App</span>
               </Link>
             </div>
-            {/* <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"></div> */}
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               {currentUser && (
                 <h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>
@@ -63,46 +59,52 @@ const Navbar = () => {
                   leaveTo="transform opacity-0 scale-95"
                 >
                   <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/register"
-                          className={classNames(
-                            active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
+                    {!currentUser && (
+                      <>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link
+                              to="/register"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Register
+                            </Link>
                           )}
-                        >
-                          Your Profile
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/login"
-                          className={classNames(
-                            active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link
+                              to="/login"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Login
+                            </Link>
                           )}
-                        >
-                          Settings
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <span
-                          role="button"
-                          onClick={() => logOut()}
-                          className={classNames(
-                            active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
-                          )}
-                        >
-                          Sign out
-                        </span>
-                      )}
-                    </Menu.Item>
+                        </Menu.Item>
+                      </>
+                    )}
+                    {currentUser && (
+                      <Menu.Item>
+                        {({ active }) => (
+                          <span
+                            role="button"
+                            onClick={() => logOut()}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
+                            )}
+                          >
+                            Sign out
+                          </span>
+                        )}
+                      </Menu.Item>
+                    )}
                   </Menu.Items>
                 </Transition>
               </Menu>
