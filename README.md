@@ -49,6 +49,7 @@ SOLUTION
 │    ├── index.js
 │    └── index.css
 ├── .gitignore
+├── LICENSE
 ├── package.json
 ├── tailwind.config.js
 └── yarn.lock
