@@ -21,7 +21,8 @@ SOLUTION
 │    └── manifest.json
 ├── src
 │    ├── assets
-│    │     └── icons
+│    │     ├──icons
+│    │     └── movie-app.gif
 │    ├── auth
 │    │     └── firebase.js
 │    ├── components
